@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% block content %}
+    <h1 class="text-center">书籍添加</h1>
+    <form action="" method="post">
+    <p>书名：
+        <input type="text" name="title" class="form-control">
+    </p>
+     <p>价格：
+        <input type="text" name="price" class="form-control">
+    </p>
+     <p>出版日期：
+        <input type="date" name="publish_date" class="form-control">
+    </p>
+    <p>出版社：
+        <select name="publish" id="" class="form-control">
+            {% for publish_obj in publish_queryset %}
+                <option value="{{ publish_obj.pk }}">{{ publish_obj.name }}</option>
+            {% endfor %}
+        </select>
+    </p>
+     <p>作者：
+         <select name="authors" id="" multiple class="form-control">
+             {% for authors_obj in authors_queryset %}
+                 <option value="{{ authors_obj.pk }}">{{ authors_obj.name }}</option>
+             {% endfor %}
+
+         </select>
+    </p>
+        <input type="submit" value="添加" class="btn btn-primary">
+    </form>
+{% endblock %}

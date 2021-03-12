@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% block css %}
+
+{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#导航条#}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">图书管理系统</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">图书 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">作者</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">更多 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Tom</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">更多操作 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+{#左右布局#}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    首页
+                </a>
+{#                使用反向解析#}
+                <a href="{% url 'book_list' %}" class="list-group-item">图书列表</a>
+                <a href="#" class="list-group-item">出版社列表</a>
+                <a href="#" class="list-group-item">作者列表</a>
+                <a href="#" class="list-group-item">更多</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">BNS</h3>
+                </div>
+                <div class="panel-body">
+{#                模板的继承#}
+                   {% block content %}
+                             {#                    巨幕#}
+                    <div class="jumbotron">
+                        <h1>欢迎来到亚洲最大的线上图书平台</h1>
+                        <p>这里什么图书的都有</p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">了解更多</a></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp.qqan.com%2Fup%2F2020-6%2F2020061708350228603.jpg&refer=http%3A%2F%2Fp.qqan.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618024206&t=2087b64a7b3b8e2cd1edaa770016628e"
+                                     alt="...">
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#"
+                                                                                                       class="btn btn-default"
+                                                                                                       role="button">Button</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2989252187,654967735&fm=26&gp=0.jpg"
+                                     alt="...">
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#"
+                                                                                                       class="btn btn-default"
+                                                                                                       role="button">Button</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=286981527,2979067516&fm=26&gp=0.jpg"
+                                     alt="...">
+                                <div class="caption">
+                                    <h3>Thumbnail label</h3>
+                                    <p>...</p>
+                                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#"
+                                                                                                       class="btn btn-default"
+                                                                                                       role="button">Button</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% block js %}
+
+{% endblock %}
+</body>
+</html>
