@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from app01 import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    # 首页    使用反向解析
+    url(r'^$', views.home, name='home'),
+    # 图书列表
+    url(r'^book/list/', views.book_list, name='book_list'),
+    # 添加书籍
+    url(r'^book/add/', views.book_add, name='book_add'),
+    # 编辑书籍  使用有名分组
+    url(r'^book/edit/(?P<edit_id>\d+)/', views.book_edit, name='book_edit'),
+    # 删除书籍 使用无名分组
+    url(r'^book/delete/(\d+)/', views.delete, name='book_delete')
+
 ]
